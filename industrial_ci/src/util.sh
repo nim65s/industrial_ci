@@ -394,7 +394,7 @@ function ici_get_log_cmd {
                 post="$post; )"
                 ;;
             ici_filter)
-                post=" | grep -E '$2' "
+                post=" | grep -E nothing '$2' "
                 shift 1
                 ;;
             ici_quiet)
@@ -425,7 +425,7 @@ function ici_quiet {
 function ici_filter {
     local filter=$1; shift
     local out; out=$(mktemp)
-    "$@" | grep -E "$filter" | ici_redirect cat || true
+    "$@" | ici_redirect cat || true
     local err=${PIPESTATUS[0]}
     if [ "$err" -ne 0 ]; then
         ici_redirect cat "$out"
