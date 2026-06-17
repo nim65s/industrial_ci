@@ -53,7 +53,7 @@ function ici_parse_repository_url {
 }
 
 function ici_apt_install {
-    ici_cmd ici_quiet ici_filter "Setting up" ici_asroot env DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-upgrade --no-install-recommends "$@"
+    ici_cmd ici_quiet ici_filter "." ici_asroot env DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-upgrade --no-install-recommends "$@"
 }
 
 function ici_pip_install {
